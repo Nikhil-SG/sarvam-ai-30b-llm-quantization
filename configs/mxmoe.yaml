@@ -1,0 +1,190 @@
+# =============================================================================
+# MxMoE Mixed-Precision Quantisation Configuration
+# Inherits model/hardware/storage from base.yaml
+# =============================================================================
+_base_: "base.yaml"
+
+# ── Module 1: Sensitivity Profiling ─────────────────────────────────────
+sensitivity:
+  calibration:
+    dataset: "dataset/sangraha_verified"
+    dataset_config: null
+    split: "train"
+    num_samples: 256
+    seq_length: 2048
+    seed: 42
+  fisher:
+    method: "diagonal"                             # diagonal | empirical
+    num_samples: 128                               # Samples for Fisher estimation
+    accumulate_batches: 4
+  routing:
+    track_frequency: true                          # Track expert activation frequency
+    num_calibration_batches: 64                    # Batches for routing statistics
+  importance:
+    high_threshold: 0.55                            # Top 45% = high importance (was 0.7)
+    low_threshold: 0.15                              # Bottom 15% = low importance (was 0.2)
+    # With percentile-rank normalization, these thresholds map directly
+    # to the fraction of experts in each tier
+
+# ── Module 2: Mixed-Precision Synthesis ─────────────────────────────────
+recipe:
+  # Active quantization strategies to run sequentially
+  # Each produces a separate quantized model for comparison
+  strategies:
+    - "fp8_gptq"                                    # FP8_DYNAMIC + GPTQ W4A16
+    - "int8_gptq"                                   # W8A16 + GPTQ W4A16 (best quality per eval data)
+
+  # Precision assignments by component type (used for recipe generation)
+  attention_precision: "fp8"                        # Attention QKV + dense
+  shared_expert_precision: "fp8"                    # Shared experts
+  high_importance_precision: "fp8"                  # Heavy-hitter experts
+  medium_importance_precision: "fp8"                # Medium experts
+  low_importance_precision: "int4"                  # Long-tail experts → GPTQ W4A16
+
+  # Compressor settings
+  compressor_backend: "llm-compressor"              # llm-compressor | manual
+  calibration:
+    dataset: "dataset/sangraha_verified"             # Same as research pipeline
+    dataset_config: null
+    split: "train"
+    seed: 42
+    num_samples: 256                                # Calibration samples for GPTQ
+    seq_length: 2048
+    batch_size: 4
+
+# ── Module 3: Evaluation & Ablation ─────────────────────────────────────
+evaluation:
+  perplexity:
+    dataset: "wikitext"
+    dataset_config: "wikitext-2-raw-v1"
+    split: "test"
+    max_length: 512
+    stride: 128
+    max_samples: 64
+
+  benchmarks:
+    pareto_metric: "composite"
+    limit: null                                     # Full dataset for publication
+    benchmark_groups:
+      - name: "general_reasoning"
+        display_name: "General Knowledge & Reasoning"
+        num_fewshot: 5
+        batch_size: 1
+        tasks:
+          - id: "mmlu"
+            label: "MMLU"
+            weight: 1.0
+
+      - name: "commonsense"
+        display_name: "Commonsense Reasoning"
+        num_fewshot: 0
+        batch_size: 1
+        tasks:
+          - id: "hellaswag"
+            label: "HellaSwag"
+            weight: 1.0
+          - id: "winogrande"
+            label: "Winogrande"
+            weight: 1.0
+          - id: "arc_challenge"
+            label: "ARC-Challenge"
+            weight: 1.0
+
+      - name: "math_logic"
+        display_name: "Mathematics & Logic"
+        num_fewshot: 5                              # 5-shot CoT (was 0-shot, caused 0% accuracy)
+        batch_size: 1
+        max_gen_toks: 512                           # Solutions need more tokens (was default 256)
+        tasks:
+          - id: "gsm8k"
+            label: "GSM8K"
+            weight: 1.0
+
+      - name: "safety_hallucination"
+        display_name: "Safety & Groundedness"
+        num_fewshot: 0
+        batch_size: 1
+        tasks:
+          - id: "truthfulqa_mc2"
+            label: "TruthfulQA"
+            weight: 1.0
+
+ablation:
+  bit_variants: [2, 3, 4, 8]                       # Bit-widths to sweep
+  target_group: "low_importance"                    # Which experts to ablate
+  max_variants: 8                                   # Max recipe variants to test
+  quick_eval: true                                  # Use limited samples for ablation
+  quick_eval_limit: 100                             # Samples per benchmark in ablation
+
+# ── Module 4: Deployment & Dissemination ────────────────────────────────
+deployment:
+  vllm:
+    enabled: true
+    tensor_parallel_size: 2                         # Match num_gpus
+    max_model_len: 4096
+    batch_sizes: [1, 4, 8, 16]
+    warmup_steps: 2
+    num_runs: 3
+    prompt: "The future of artificial intelligence in healthcare is transforming how we approach diagnosis and treatment."
+    max_new_tokens: 128
+
+  huggingface:
+    repo_id: null                                   # e.g., "your-username/sarvam-30b-MxMoE"
+    push_to_hub: false                              # Set true to auto-publish
+    tags:
+      - "quantized"
+      - "moe"
+      - "mxmoe"
+      - "sarvam"
+      - "mixed-precision"
+
+# ── Profiling (reuses existing infrastructure) ──────────────────────────
+profiling:
+  prompt: "The future of artificial intelligence in healthcare is transforming how we approach diagnosis and treatment."
+  max_new_tokens: 64
+  generation_tokens: 2048
+  batch_sizes: [1, 2, 4, 8]
+  warmup_steps: 2
+  num_runs: 3
+
+# ── Visualization ───────────────────────────────────────────────────────
+visualization:
+  target_layers:
+    - "model.layers.0.attention.query_key_value"
+    - "model.layers.9.attention.query_key_value"
+    - "model.layers.18.attention.query_key_value"
+    - "model.layers.1.mlp.shared_experts.down_proj"
+    - "model.layers.9.mlp.shared_experts.down_proj"
+    - "model.layers.9.mlp.experts.0.down_proj"
+    - "model.layers.9.mlp.experts.63.down_proj"
+    - "model.layers.9.mlp.experts.127.down_proj"
+
+  mse_heatmap:
+    projections:
+      - "attention.query_key_value"
+      - "attention.dense"
+    include_moe_projections: true
+    moe_projections:
+      - "mlp.shared_experts.down_proj"
+    num_layers: 19
+
+  outlier_detection:
+    sigma_threshold: 6.0
+    analyze_tags:
+      - "bf16"
+      - "mxmoe"
+    skip_missing_checkpoints: true
+    prompts:
+      - "The future of artificial intelligence in healthcare is transforming how we approach diagnosis and treatment."
+      - "Explain how mixture-of-experts routing changes memory, latency, and quality tradeoffs in multilingual language models."
+
+  weight_sample_size: 500000
+  dpi: 150
+  figsize_width: 14
+  figsize_height: 8
+  style: "seaborn-v0_8-whitegrid"
+
+# ── Output Directories ──────────────────────────────────────────────────
+output:
+  base_dir: "mxmoe/outputs"
+  quantized_models_dir: "mxmoe/quantized_models"

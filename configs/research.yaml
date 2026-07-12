@@ -1,0 +1,186 @@
+# =============================================================================
+# LLM Quantization Research Configuration
+# Inherits model/hardware/storage from base.yaml
+# =============================================================================
+_base_: "base.yaml"
+
+# Pre-quantized model IDs from HuggingFace (set to null to quantize from scratch)
+pretrained_quantized:
+  gptq: null                              # e.g., "community/sarvam-30b-GPTQ"
+
+quantization:
+  calibration:
+    dataset: "dataset/sangraha_verified"
+    dataset_config: null
+    split: "train"
+    num_samples: 128
+    seq_length: 2048
+    seed: 42
+
+  int8:
+    llm_int8_threshold: 6.0              # Outlier threshold for LLM.int8()
+
+  nf4:
+    double_quant: true                   # Double quantization (compresses quant constants)
+    compute_dtype: "bfloat16"            # Compute dtype for dequantized forward pass
+
+  fp8:
+    weights: "float8"                   # optimum-quanto float8 weights
+    activations: "float8"               # Runtime FP8 activations; calibration records good input/output scales
+    dataset: "dataset/sangraha_verified"
+    dataset_config: null
+    split: "train"
+    cal_num_samples: 64
+    cal_seq_length: 1024
+    batch_size: 4
+    seed: 42
+    streamline: true                     # Let quanto skip unnecessary q/deq activation paths during calibration
+
+  gptq:
+    bits: 4
+    group_size: 128
+    desc_act: false                      # desc_act=False for better MoE compatibility
+    dataset: "dataset/sangraha_verified"  # Calibration dataset for GPTQ
+    dataset_config: null
+    split: "train"
+    seed: 42
+    sym: false                           # Asymmetric quantization
+    allow_transformers_fallback: false   # Keep false for Sarvam MoE: fail fast if gptqmodel path breaks
+    # MoE-optimized calibration: 128 experts × 3 proj × 18 layers = 7000+ layers.
+    # Each layer must forward all samples.  Reducing samples/seqlen cuts
+    # per-layer compute dramatically with minimal quality impact on small
+    # expert matrices.  Override shared calibration values here.
+    cal_num_samples: 32                  # 32 samples (vs shared 128) — sufficient for small expert weights
+    cal_seq_length: 512                  # 512 tokens (vs shared 2048) — keeps per-layer Hessian cost low
+    batch_size: 4                        # Batch calibration on A100 — 4x throughput
+
+profiling:
+  prompt: "The future of artificial intelligence in healthcare is transforming how we approach diagnosis and treatment."
+  max_new_tokens: 64    # Enough for TPS measurement, 4x faster per run
+  generation_tokens: 2048
+  batch_sizes: [1, 2, 4, 8]
+  warmup_steps: 2
+  num_runs: 3           # Still statistically valid, 40% fewer runs
+
+evaluation:
+  perplexity:
+    dataset: "wikitext"
+    dataset_config: "wikitext-2-raw-v1"
+    split: "test"
+    max_length: 2048
+    stride: 1024
+    max_samples: null                     # 100 windows for tighter PPL estimate (±0.15 PPL)
+
+  benchmarks:
+    # Practical Sarvam-30B research suite for quantization comparison.
+    # These tasks are chosen to be realistic to run under lm-eval while still
+    # covering the model card's core axes: knowledge, reasoning, coding, and
+    # instruction following.
+    pareto_metric: "composite"
+    limit: null                           # Default to a practical research run; set null for final full paper runs
+    benchmark_groups:
+      - name: "knowledge_reasoning"
+        display_name: "Knowledge & Reasoning"
+        num_fewshot: 5
+        batch_size: 2
+        max_gen_toks: 256
+        temperature: 1.0
+        top_p: 1.0
+        max_new_tokens: 65536
+        tasks:
+          - id: "mmlu"
+            label: "MMLU"
+            weight: 1.0
+            generative: false
+            batch_size: 2               # A100 80GB handles bs=8 easily for loglikelihood
+            limit: null                   # 57 subtasks × 50 = 2,850 examples — sufficient for ranking
+
+      - name: "coding"
+        display_name: "Coding"
+        num_fewshot: 0
+        batch_size: 1
+        max_gen_toks: 256
+        temperature: 1.0
+        top_p: 1.0
+        max_new_tokens: 65536
+        tasks: []
+
+# ── Visualization / Weight Analysis ─────────────────────────────────────
+# Sarvam-30B architecture (SarvamMoEForCausalLM):
+#   - 19 layers total: layer 0 = dense MLP, layers 1-18 = MoE (128 experts, top-6)
+#   - Attention uses fused query_key_value (not separate q/k/v_proj)
+#   - Output projection is called 'dense' (not o_proj)
+#   - MoE layers have: gate (router), shared_experts, experts.{0-127}
+#
+# target_layers picks representative layers spanning:
+#   - Early (0), Middle (9), Late (18)
+#   - Attention (query_key_value, dense)
+#   - Dense MLP (layer 0: down_proj)
+#   - MoE shared expert (shared_experts.down_proj)
+#   - MoE routed experts (experts.0, experts.63, experts.127)
+#   - Router weights (gate.weight)
+visualization:
+  target_layers:
+    # Attention projections (early, middle, late)
+    - "model.layers.0.attention.query_key_value"
+    - "model.layers.0.attention.dense"
+    - "model.layers.9.attention.query_key_value"
+    - "model.layers.9.attention.dense"
+    - "model.layers.18.attention.query_key_value"
+    - "model.layers.18.attention.dense"
+    # Dense MLP (layer 0 only — no MoE)
+    - "model.layers.0.mlp.down_proj"
+    - "model.layers.0.mlp.gate_proj"
+    # MoE shared expert (layers 1-18)
+    - "model.layers.1.mlp.shared_experts.down_proj"
+    - "model.layers.9.mlp.shared_experts.down_proj"
+    - "model.layers.18.mlp.shared_experts.down_proj"
+    # MoE routed experts — representative sample across expert indices
+    - "model.layers.9.mlp.experts.0.down_proj"
+    - "model.layers.9.mlp.experts.63.down_proj"
+    - "model.layers.9.mlp.experts.127.down_proj"
+
+  mse_heatmap:
+    # Projections to sweep across ALL layers for MSE heatmap
+    # Uses auto-detection: code will discover available projections per layer
+    projections:
+      - "attention.query_key_value"
+      - "attention.dense"
+    include_moe_projections: true
+    moe_projections:
+      - "mlp.shared_experts.down_proj"
+    num_layers: 19
+
+  outlier_detection:
+    sigma_threshold: 6.0
+    analyze_tags:
+      - "bf16"
+      - "int8"
+      - "fp8"
+      - "nf4"
+      - "gptq"
+    skip_missing_checkpoints: true
+    prompts:
+      - "The future of artificial intelligence in healthcare is transforming how we approach diagnosis and treatment."
+      - "Explain how mixture-of-experts routing changes memory, latency, and quality tradeoffs in multilingual language models."
+      - "Write a Python function that merges two sorted arrays and explain its time complexity."
+      - "भारत जैसे बहुभाषी देश में बड़े भाषा मॉडल के लिए क्वांटाइजेशन क्यों महत्वपूर्ण है?"
+
+  weight_sample_size: 500000             # Number of weight values to sample per layer
+  dpi: 150
+  figsize_width: 14
+  figsize_height: 8
+  style: "seaborn-v0_8-whitegrid"
+
+output:
+  base_dir: "research/outputs"                    # Root output directory
+  quantized_models_dir: "research/quantized_models"  # Saved quantized model checkpoints
+  # Per-module subdirectories are created lazily (only when files are written):
+  #   research/outputs/module_1_baseline/       (plots/ logs/ results/)
+  #   research/outputs/module_2_quantization/   ...
+  #   research/outputs/module_3_analysis/       ...
+  #   research/outputs/module_4_profiling/      ...
+  #   research/outputs/module_5_evaluation/     ...
+  #   research/outputs/module_6_visualization/  ...
+  #   research/outputs/shared_weights/          (weight caches shared across modules)
+  #   research/outputs/pipeline_summary.json    (when run via main.py)

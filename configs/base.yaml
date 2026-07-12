@@ -1,0 +1,25 @@
+# =============================================================================
+# Shared base configuration for both Research and MxMoE pipelines
+# Model: sarvamai/sarvam-30b (MoE: 32B total, 2.4B active per token)
+# Hardware: 2x NVIDIA A100 80GB PCIe (160GB total VRAM)
+# =============================================================================
+
+storage:
+  hf_home: "./model_registry"
+  local_model_path: "./model_registry"
+
+model:
+  model_id: "sarvamai/sarvam-30b"
+  revision: "main"
+  cache_dir: "./model_registry"
+  trust_remote_code: true
+  attn_implementation: "sdpa"
+  hf_token: null
+
+hardware:
+  num_gpus: 2
+  device_map: "auto"
+  primary_cuda_index: 1
+  max_memory:
+    "0": "70GiB"   # Secondary GPU — lower budget so auto placement biases to cuda:1
+    "1": "78GiB"   # Primary GPU — higher budget for preferential layer placement
