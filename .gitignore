@@ -1,0 +1,78 @@
+# =============================================================================
+# Python & Build Artifacts
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# =============================================================================
+# Virtual Environments
+# =============================================================================
+.venv/
+venv/
+ENV/
+env/
+mxmoe_vllm_env/
+mxmoe_env/
+
+# =============================================================================
+# Project Specific Ignore Paths (Model weights, datasets, large outputs)
+# =============================================================================
+# Model cache registry
+model_registry/
+
+# Quantized models and weights
+research/quantized_models/
+mxmoe/quantized_models_fp8_gptq/
+mxmoe/quantized_models_int8_gptq/
+
+# Pipeline execution outputs (metrics, plots, logs)
+research/outputs/
+mxmoe/outputs/
+
+# Large compressed archives
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+
+# Local test datasets (if any downloaded locally)
+dataset/sangraha_verified/
+
+# =============================================================================
+# Logs, Databases, and Temp Files
+# =============================================================================
+*.log
+*.sqlite
+*.sqlite3
+.pytest_cache/
+.ipynb_checkpoints/
+
+# =============================================================================
+# IDE & System Files
+# =============================================================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+cleanup.py

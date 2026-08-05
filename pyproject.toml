@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sarvam-quantization"
+version = "0.1.0"
+description = "Quantization research and MxMoE mixed-precision pipeline for sarvamai/sarvam-30b"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.40.0",
+    "datasets>=2.14.0",
+    "pyyaml>=6.0.0",
+    "numpy>=1.24.0",
+    "tqdm>=4.65.0",
+    "huggingface_hub>=0.20.0",
+    "safetensors>=0.4.0",
+    "matplotlib>=3.7.0",
+    "accelerate>=0.28.0",
+]
+
+[project.optional-dependencies]
+research = [
+    "bitsandbytes==0.49.2",
+    "optimum>=1.23,<2",
+    "optimum-quanto==0.2.7",
+    "auto-gptq==0.7.1",
+    "lm-eval==0.4.11",
+]
+mxmoe = [
+    # Single env for quantization + evaluation
+    # llmcompressor >=0.5 supports recipe=[modifier_list] with pipeline="sequential"
+    # compressed-tensors >=0.9 supports multiple config_groups in quantization_config
+    # These versions are mutually compatible and work with vLLM's native loading
+    "llmcompressor>=0.5.0",
+    "compressed-tensors>=0.9.0",
+    "scipy>=1.12.0",
+    "lm-eval>=0.4",
+    "datasets>=2.14.0",
+]
+vllm = [
+    # Module 4/5 deployment env — vLLM >= 0.20.0 inference
+    # ⚠ Run inside your existing env/mxmoe_inf virtual environment.
+    # Setup:
+    #   source env/mxmoe_inf/bin/activate
+    #   pip install --no-deps -e ".[vllm]"
+    #   export VLLM_USE_V1=0
+    "transformers>=4.48.3",
+    "scipy>=1.12.0",
+    "pytest>=7.0",
+    "matplotlib>=3.7.0",
+    "pandas>=2.0.0",
+    "pyyaml>=6.0",
+]
+dev = [
+    "pytest>=7.0",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*", "pipelines*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
