@@ -1,0 +1,150 @@
+{
+    "study_config": {
+        "variants": [
+            {
+                "label": "baseline_bf16",
+                "low_bits": 16,
+                "medium_bits": 16,
+                "high_bits": 16
+            },
+            {
+                "label": "all_int8",
+                "low_bits": 8,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            {
+                "label": "all_fp8",
+                "low_bits": 8,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            {
+                "label": "int8_gptq",
+                "low_bits": 4,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            {
+                "label": "fp8_gptq",
+                "low_bits": 4,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            {
+                "label": "aggressive_low3",
+                "low_bits": 3,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            {
+                "label": "extreme_low2",
+                "low_bits": 2,
+                "medium_bits": 8,
+                "high_bits": 8
+            }
+        ],
+        "eval_limit": 100,
+        "expert_counts": {
+            "HIGH": 1013,
+            "MEDIUM": 1030,
+            "LOW": 261
+        },
+        "strategies_evaluated": [
+            "fp8_gptq",
+            "int8_gptq"
+        ]
+    },
+    "variant_results": [
+        {
+            "label": "baseline_bf16",
+            "config": {
+                "label": "baseline_bf16",
+                "low_bits": 16,
+                "medium_bits": 16,
+                "high_bits": 16
+            },
+            "estimated_size_gb": 44.0,
+            "compression_ratio": 1.36
+        },
+        {
+            "label": "all_int8",
+            "config": {
+                "label": "all_int8",
+                "low_bits": 8,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            "estimated_size_gb": 30.0,
+            "compression_ratio": 2.0
+        },
+        {
+            "label": "all_fp8",
+            "config": {
+                "label": "all_fp8",
+                "low_bits": 8,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            "estimated_size_gb": 30.0,
+            "compression_ratio": 2.0
+        },
+        {
+            "label": "int8_gptq",
+            "config": {
+                "label": "int8_gptq",
+                "low_bits": 4,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            "estimated_size_gb": 29.21,
+            "compression_ratio": 2.05
+        },
+        {
+            "label": "fp8_gptq",
+            "config": {
+                "label": "fp8_gptq",
+                "low_bits": 4,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            "estimated_size_gb": 29.21,
+            "compression_ratio": 2.05
+        },
+        {
+            "label": "aggressive_low3",
+            "config": {
+                "label": "aggressive_low3",
+                "low_bits": 3,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            "estimated_size_gb": 29.01,
+            "compression_ratio": 2.07
+        },
+        {
+            "label": "extreme_low2",
+            "config": {
+                "label": "extreme_low2",
+                "low_bits": 2,
+                "medium_bits": 8,
+                "high_bits": 8
+            },
+            "estimated_size_gb": 28.81,
+            "compression_ratio": 2.08
+        }
+    ],
+    "accuracy_floor": {
+        "method": "The accuracy floor is detected by finding the bit-width where perplexity increases >10% compared to BF16, OR where any benchmark score drops >5 absolute points.",
+        "detection_thresholds": {
+            "perplexity_degradation_pct": 10.0,
+            "benchmark_drop_absolute": 5.0
+        }
+    },
+    "mxmoe_default_eval": {
+        "status": "success",
+        "source": "mxmoe/outputs/module_3_evaluation/results/full_evaluation.json",
+        "note": "Reusing evaluation from step 3a (not re-evaluated)"
+    },
+    "total_time_sec": 0.02
+}

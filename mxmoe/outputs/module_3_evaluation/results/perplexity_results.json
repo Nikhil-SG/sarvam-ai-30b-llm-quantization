@@ -1,0 +1,20 @@
+{
+  "fp8_gptq": {
+    "tag": "fp8_gptq",
+    "perplexity": 16.125,
+    "avg_nll": 2.780368,
+    "num_windows": 64,
+    "dataset": "wikitext",
+    "max_length": 512,
+    "stride": 128
+  },
+  "int8_gptq": {
+    "tag": "int8_gptq",
+    "perplexity": 15.4343,
+    "avg_nll": 2.736589,
+    "num_windows": 64,
+    "dataset": "wikitext",
+    "max_length": 512,
+    "stride": 128
+  }
+}
