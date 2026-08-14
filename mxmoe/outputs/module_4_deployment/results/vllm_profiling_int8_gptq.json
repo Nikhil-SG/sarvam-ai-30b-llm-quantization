@@ -1,0 +1,6 @@
+{
+    "model_path": "/data/nikhilsg/sarvam-ai-30b-llm-quantization/mxmoe/quantized_models_int8_gptq",
+    "strategy": "int8_gptq",
+    "error": "Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore': 1}",
+    "profile_results": {}
+}

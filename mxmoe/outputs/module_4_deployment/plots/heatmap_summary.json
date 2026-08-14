@@ -1,0 +1,12 @@
+{
+  "classification_counts": {
+    "HIGH": 1013,
+    "MEDIUM": 1030,
+    "LOW": 261
+  },
+  "total_experts": 2304,
+  "matrix_shape": [
+    18,
+    128
+  ]
+}

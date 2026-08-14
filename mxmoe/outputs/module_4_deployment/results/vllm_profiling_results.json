@@ -1,0 +1,168 @@
+{
+    "model_path": "/data/nikhilsg/sarvam-ai-30b-llm-quantization/mxmoe/quantized_models_int8_gptq",
+    "strategy": "int8_gptq",
+    "error": "Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore': 1}",
+    "profile_results": {},
+    "all_strategies": {
+        "int8_gptq": {
+            "model_path": "/data/nikhilsg/sarvam-ai-30b-llm-quantization/mxmoe/quantized_models_int8_gptq",
+            "strategy": "int8_gptq",
+            "error": "Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore': 1}",
+            "profile_results": {}
+        },
+        "fp8_gptq": {
+            "model_path": "/data/nikhilsg/sarvam-ai-30b-llm-quantization/mxmoe/quantized_models_fp8_gptq",
+            "strategy": "fp8_gptq",
+            "vllm_config": {
+                "tensor_parallel_size": 2,
+                "max_model_len": 4096,
+                "max_new_tokens": 128,
+                "gpu_memory_utilization": 0.55,
+                "enforce_eager": true
+            },
+            "vram_usage": {
+                "gpu_0": {
+                    "allocated_gb": 0.0,
+                    "reserved_gb": 0.0
+                },
+                "gpu_1": {
+                    "allocated_gb": 0.0,
+                    "reserved_gb": 0.0
+                }
+            },
+            "profile_results": {
+                "1": {
+                    "batch_size": 1,
+                    "avg_latency_sec": 4.6621,
+                    "min_latency_sec": 4.0584,
+                    "max_latency_sec": 4.9892,
+                    "tokens_per_sec": 27.46,
+                    "avg_tokens_generated": 128.0,
+                    "time_per_token_ms": 36.42,
+                    "num_runs": 3
+                },
+                "4": {
+                    "batch_size": 4,
+                    "avg_latency_sec": 4.0958,
+                    "min_latency_sec": 4.0726,
+                    "max_latency_sec": 4.1089,
+                    "tokens_per_sec": 125.01,
+                    "avg_tokens_generated": 512.0,
+                    "time_per_token_ms": 8.0,
+                    "num_runs": 3
+                },
+                "8": {
+                    "batch_size": 8,
+                    "avg_latency_sec": 4.1703,
+                    "min_latency_sec": 4.1435,
+                    "max_latency_sec": 4.2061,
+                    "tokens_per_sec": 245.55,
+                    "avg_tokens_generated": 1024.0,
+                    "time_per_token_ms": 4.07,
+                    "num_runs": 3
+                },
+                "16": {
+                    "batch_size": 16,
+                    "avg_latency_sec": 4.2813,
+                    "min_latency_sec": 4.1444,
+                    "max_latency_sec": 4.4971,
+                    "tokens_per_sec": 478.36,
+                    "avg_tokens_generated": 2048.0,
+                    "time_per_token_ms": 2.09,
+                    "num_runs": 3
+                },
+                "32": {
+                    "batch_size": 32,
+                    "avg_latency_sec": 4.2559,
+                    "min_latency_sec": 4.2114,
+                    "max_latency_sec": 4.2983,
+                    "tokens_per_sec": 962.42,
+                    "avg_tokens_generated": 4096.0,
+                    "time_per_token_ms": 1.04,
+                    "num_runs": 3
+                }
+            }
+        },
+        "int8_gptq_hf": {
+            "model_path": "/data/nikhilsg/sarvam-ai-30b-llm-quantization/mxmoe/quantized_models_int8_gptq",
+            "strategy": "int8_gptq",
+            "engine": "huggingface_transformers",
+            "config": {
+                "torch_dtype": "bfloat16",
+                "device_map": "auto",
+                "attn_implementation": "flash_attention_2",
+                "max_new_tokens": 128
+            },
+            "vram_usage": {
+                "gpu_0": {
+                    "allocated_gb": 13.84,
+                    "reserved_gb": 13.84,
+                    "total_gb": 84.99
+                },
+                "gpu_1": {
+                    "allocated_gb": 18.91,
+                    "reserved_gb": 18.92,
+                    "total_gb": 84.99
+                }
+            },
+            "model_load_time_sec": 137.79,
+            "profile_results": {
+                "1": {
+                    "batch_size": 1,
+                    "avg_latency_sec": 17.9817,
+                    "min_latency_sec": 17.9338,
+                    "max_latency_sec": 18.0302,
+                    "tokens_per_sec": 7.12,
+                    "avg_tokens_generated": 128.0,
+                    "time_per_token_ms": 140.48,
+                    "num_runs": 3
+                },
+                "4": {
+                    "batch_size": 4,
+                    "avg_latency_sec": 18.7313,
+                    "min_latency_sec": 18.6418,
+                    "max_latency_sec": 18.7786,
+                    "tokens_per_sec": 27.33,
+                    "avg_tokens_generated": 512.0,
+                    "time_per_token_ms": 36.58,
+                    "num_runs": 3
+                },
+                "8": {
+                    "batch_size": 8,
+                    "avg_latency_sec": 18.4192,
+                    "min_latency_sec": 18.2381,
+                    "max_latency_sec": 18.6813,
+                    "tokens_per_sec": 55.59,
+                    "avg_tokens_generated": 1024.0,
+                    "time_per_token_ms": 17.99,
+                    "num_runs": 3
+                },
+                "16": {
+                    "batch_size": 16,
+                    "avg_latency_sec": 18.5709,
+                    "min_latency_sec": 18.5172,
+                    "max_latency_sec": 18.6114,
+                    "tokens_per_sec": 110.28,
+                    "avg_tokens_generated": 2048.0,
+                    "time_per_token_ms": 9.07,
+                    "num_runs": 3
+                },
+                "32": {
+                    "batch_size": 32,
+                    "avg_latency_sec": 18.5956,
+                    "min_latency_sec": 18.5541,
+                    "max_latency_sec": 18.6577,
+                    "tokens_per_sec": 220.27,
+                    "avg_tokens_generated": 4096.0,
+                    "time_per_token_ms": 4.54,
+                    "num_runs": 3
+                }
+            },
+            "sample_output": "Hello, my name is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is",
+            "total_time_sec": 617.15
+        }
+    },
+    "total_time_sec": 167.25,
+    "patch_applied": "FusedMoE._load_per_channel_weight_scale [N,1]\u2192[N,G] broadcast",
+    "metrics": {}
+}

@@ -1,0 +1,452 @@
+{
+  "fp8_gptq": {
+    "tag": "fp8_gptq",
+    "tasks": {
+      "mmlu": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "mmlu",
+        "label": "MMLU",
+        "group": "general_reasoning",
+        "accuracy": 65.1759008688221,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 5,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 10597.52,
+        "raw": {
+          "acc,none": 0.651759008688221,
+          "acc_stderr,none": 0.0037844348355381974
+        }
+      },
+      "hellaswag": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "hellaswag",
+        "label": "HellaSwag",
+        "group": "commonsense",
+        "accuracy": 39.95220075682135,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 0,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 18985.11,
+        "raw": {
+          "acc,none": 0.3995220075682135,
+          "acc_stderr,none": 0.0048879912259502676,
+          "acc_norm,none": 0.5072694682334197,
+          "acc_norm_stderr,none": 0.004989254011895739
+        }
+      },
+      "winogrande": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "winogrande",
+        "label": "Winogrande",
+        "group": "commonsense",
+        "accuracy": 51.302288871349646,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 0,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 851.82,
+        "raw": {
+          "acc,none": 0.5130228887134964,
+          "acc_stderr,none": 0.01404771839399767
+        }
+      },
+      "arc_challenge": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "arc_challenge",
+        "label": "ARC-Challenge",
+        "group": "commonsense",
+        "accuracy": 26.36518771331058,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 0,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 1696.73,
+        "raw": {
+          "acc,none": 0.2636518771331058,
+          "acc_stderr,none": 0.012875929151297054,
+          "acc_norm,none": 0.32081911262798635,
+          "acc_norm_stderr,none": 0.013640943091946528
+        }
+      },
+      "gsm8k": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "gsm8k",
+        "label": "GSM8K",
+        "group": "math_logic",
+        "accuracy": 60.19711902956786,
+        "weight": 1.0,
+        "kind": "generative",
+        "num_fewshot": 5,
+        "batch_size": 1,
+        "max_gen_toks": 512,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 23562.18,
+        "raw": {
+          "exact_match,strict-match": 0.6019711902956786,
+          "exact_match_stderr,strict-match": 0.013483026939074823,
+          "exact_match,flexible-extract": 0.6027293404094011,
+          "exact_match_stderr,flexible-extract": 0.013478659652337799
+        }
+      },
+      "truthfulqa_mc2": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "truthfulqa_mc2",
+        "label": "TruthfulQA",
+        "group": "safety_hallucination",
+        "accuracy": 48.787354511899565,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 0,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 3898.49,
+        "raw": {
+          "acc,none": 0.48787354511899567,
+          "acc_stderr,none": 0.015305919270378351
+        }
+      }
+    },
+    "suite": {
+      "task_ids": [
+        "mmlu",
+        "hellaswag",
+        "winogrande",
+        "arc_challenge",
+        "gsm8k",
+        "truthfulqa_mc2"
+      ],
+      "primary_metric": "composite",
+      "groups": [
+        "general_reasoning",
+        "commonsense",
+        "math_logic",
+        "safety_hallucination"
+      ]
+    },
+    "mmlu": {
+      "accuracy": 65.1759008688221,
+      "status": "\u2713 COMPLETED",
+      "label": "MMLU",
+      "group": "general_reasoning",
+      "raw": {
+        "acc,none": 0.651759008688221,
+        "acc_stderr,none": 0.0037844348355381974
+      }
+    },
+    "hellaswag": {
+      "accuracy": 39.95220075682135,
+      "status": "\u2713 COMPLETED",
+      "label": "HellaSwag",
+      "group": "commonsense",
+      "raw": {
+        "acc,none": 0.3995220075682135,
+        "acc_stderr,none": 0.0048879912259502676,
+        "acc_norm,none": 0.5072694682334197,
+        "acc_norm_stderr,none": 0.004989254011895739
+      }
+    },
+    "winogrande": {
+      "accuracy": 51.302288871349646,
+      "status": "\u2713 COMPLETED",
+      "label": "Winogrande",
+      "group": "commonsense",
+      "raw": {
+        "acc,none": 0.5130228887134964,
+        "acc_stderr,none": 0.01404771839399767
+      }
+    },
+    "arc_challenge": {
+      "accuracy": 26.36518771331058,
+      "status": "\u2713 COMPLETED",
+      "label": "ARC-Challenge",
+      "group": "commonsense",
+      "raw": {
+        "acc,none": 0.2636518771331058,
+        "acc_stderr,none": 0.012875929151297054,
+        "acc_norm,none": 0.32081911262798635,
+        "acc_norm_stderr,none": 0.013640943091946528
+      }
+    },
+    "gsm8k": {
+      "accuracy": 60.19711902956786,
+      "status": "\u2713 COMPLETED",
+      "label": "GSM8K",
+      "group": "math_logic",
+      "raw": {
+        "exact_match,strict-match": 0.6019711902956786,
+        "exact_match_stderr,strict-match": 0.013483026939074823,
+        "exact_match,flexible-extract": 0.6027293404094011,
+        "exact_match_stderr,flexible-extract": 0.013478659652337799
+      }
+    },
+    "truthfulqa_mc2": {
+      "accuracy": 48.787354511899565,
+      "status": "\u2713 COMPLETED",
+      "label": "TruthfulQA",
+      "group": "safety_hallucination",
+      "raw": {
+        "acc,none": 0.48787354511899567,
+        "acc_stderr,none": 0.015305919270378351
+      }
+    },
+    "summary": {
+      "completed_tasks": [
+        "mmlu",
+        "hellaswag",
+        "winogrande",
+        "arc_challenge",
+        "gsm8k",
+        "truthfulqa_mc2"
+      ],
+      "skipped_tasks": [],
+      "failed_tasks": [],
+      "composite_score": 48.63,
+      "primary_metric": "composite",
+      "primary_score": 48.63,
+      "num_tasks_total": 6,
+      "num_tasks_completed": 6
+    }
+  },
+  "int8_gptq": {
+    "tag": "int8_gptq",
+    "tasks": {
+      "mmlu": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "mmlu",
+        "label": "MMLU",
+        "group": "general_reasoning",
+        "accuracy": 65.68864834069221,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 5,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 10652.4,
+        "raw": {
+          "acc,none": 0.6568864834069221,
+          "acc_stderr,none": 0.003764757481250785
+        }
+      },
+      "hellaswag": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "hellaswag",
+        "label": "HellaSwag",
+        "group": "commonsense",
+        "accuracy": 40.788687512447716,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 0,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 18917.76,
+        "raw": {
+          "acc,none": 0.4078868751244772,
+          "acc_stderr,none": 0.00490437563112885,
+          "acc_norm,none": 0.520812587134037,
+          "acc_norm_stderr,none": 0.0049854567521610575
+        }
+      },
+      "winogrande": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "winogrande",
+        "label": "Winogrande",
+        "group": "commonsense",
+        "accuracy": 52.56511444356748,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 0,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 866.52,
+        "raw": {
+          "acc,none": 0.5256511444356748,
+          "acc_stderr,none": 0.014033980956108557
+        }
+      },
+      "arc_challenge": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "arc_challenge",
+        "label": "ARC-Challenge",
+        "group": "commonsense",
+        "accuracy": 28.754266211604097,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 0,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 1740.96,
+        "raw": {
+          "acc,none": 0.28754266211604096,
+          "acc_stderr,none": 0.013226719056266123,
+          "acc_norm,none": 0.32849829351535836,
+          "acc_norm_stderr,none": 0.01372497846553737
+        }
+      },
+      "gsm8k": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "gsm8k",
+        "label": "GSM8K",
+        "group": "math_logic",
+        "accuracy": 70.9628506444276,
+        "weight": 1.0,
+        "kind": "generative",
+        "num_fewshot": 5,
+        "batch_size": 1,
+        "max_gen_toks": 512,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 25302.75,
+        "raw": {
+          "exact_match,strict-match": 0.709628506444276,
+          "exact_match_stderr,strict-match": 0.012503592481818954,
+          "exact_match,flexible-extract": 0.6884003032600455,
+          "exact_match_stderr,flexible-extract": 0.012757375376754941
+        }
+      },
+      "truthfulqa_mc2": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "truthfulqa_mc2",
+        "label": "TruthfulQA",
+        "group": "safety_hallucination",
+        "accuracy": 49.11069441092304,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 0,
+        "batch_size": 1,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 3940.45,
+        "raw": {
+          "acc,none": 0.4911069441092304,
+          "acc_stderr,none": 0.015369137648112506
+        }
+      }
+    },
+    "suite": {
+      "task_ids": [
+        "mmlu",
+        "hellaswag",
+        "winogrande",
+        "arc_challenge",
+        "gsm8k",
+        "truthfulqa_mc2"
+      ],
+      "primary_metric": "composite",
+      "groups": [
+        "general_reasoning",
+        "commonsense",
+        "math_logic",
+        "safety_hallucination"
+      ]
+    },
+    "mmlu": {
+      "accuracy": 65.68864834069221,
+      "status": "\u2713 COMPLETED",
+      "label": "MMLU",
+      "group": "general_reasoning",
+      "raw": {
+        "acc,none": 0.6568864834069221,
+        "acc_stderr,none": 0.003764757481250785
+      }
+    },
+    "hellaswag": {
+      "accuracy": 40.788687512447716,
+      "status": "\u2713 COMPLETED",
+      "label": "HellaSwag",
+      "group": "commonsense",
+      "raw": {
+        "acc,none": 0.4078868751244772,
+        "acc_stderr,none": 0.00490437563112885,
+        "acc_norm,none": 0.520812587134037,
+        "acc_norm_stderr,none": 0.0049854567521610575
+      }
+    },
+    "winogrande": {
+      "accuracy": 52.56511444356748,
+      "status": "\u2713 COMPLETED",
+      "label": "Winogrande",
+      "group": "commonsense",
+      "raw": {
+        "acc,none": 0.5256511444356748,
+        "acc_stderr,none": 0.014033980956108557
+      }
+    },
+    "arc_challenge": {
+      "accuracy": 28.754266211604097,
+      "status": "\u2713 COMPLETED",
+      "label": "ARC-Challenge",
+      "group": "commonsense",
+      "raw": {
+        "acc,none": 0.28754266211604096,
+        "acc_stderr,none": 0.013226719056266123,
+        "acc_norm,none": 0.32849829351535836,
+        "acc_norm_stderr,none": 0.01372497846553737
+      }
+    },
+    "gsm8k": {
+      "accuracy": 70.9628506444276,
+      "status": "\u2713 COMPLETED",
+      "label": "GSM8K",
+      "group": "math_logic",
+      "raw": {
+        "exact_match,strict-match": 0.709628506444276,
+        "exact_match_stderr,strict-match": 0.012503592481818954,
+        "exact_match,flexible-extract": 0.6884003032600455,
+        "exact_match_stderr,flexible-extract": 0.012757375376754941
+      }
+    },
+    "truthfulqa_mc2": {
+      "accuracy": 49.11069441092304,
+      "status": "\u2713 COMPLETED",
+      "label": "TruthfulQA",
+      "group": "safety_hallucination",
+      "raw": {
+        "acc,none": 0.4911069441092304,
+        "acc_stderr,none": 0.015369137648112506
+      }
+    },
+    "summary": {
+      "completed_tasks": [
+        "mmlu",
+        "hellaswag",
+        "winogrande",
+        "arc_challenge",
+        "gsm8k",
+        "truthfulqa_mc2"
+      ],
+      "skipped_tasks": [],
+      "failed_tasks": [],
+      "composite_score": 51.31,
+      "primary_metric": "composite",
+      "primary_score": 51.31,
+      "num_tasks_total": 6,
+      "num_tasks_completed": 6
+    }
+  }
+}
