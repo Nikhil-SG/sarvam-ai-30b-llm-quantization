@@ -1,8 +1,0 @@
-{
-    "status": "success",
-    "repo_id": "Nikhil-SG/sarvam-30b-MxMoE-INT8-GPTQ",
-    "repo_url": "https://huggingface.co/Nikhil-SG/sarvam-30b-MxMoE-INT8-GPTQ",
-    "commit_hash": "74d9370420967380c1f672ba6886a6e62c32d254",
-    "num_files": 20,
-    "total_size_gb": 34.62
-}
