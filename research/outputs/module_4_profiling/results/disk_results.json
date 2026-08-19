@@ -1,0 +1,62 @@
+{
+  "bf16": {
+    "path": "/data/nikhilsg/sarvam-ai-30b-llm-quantization/model_registry/models--sarvamai--sarvam-30b/snapshots/071ae95e933605ca1104a6b4524a36a98488efa4",
+    "num_shards": 26,
+    "total_bytes": 128611480816,
+    "total_gb": 119.779,
+    "source": "filesystem",
+    "measurement_type": "serialized_checkpoint_bytes",
+    "model_size_gb": 119.779,
+    "runtime_exposed_weight_footprint_gb": 59.889,
+    "runtime_total_parameters": 32152650368,
+    "disk_minus_runtime_gb": 59.89
+  },
+  "int8": {
+    "path": "research/quantized_models/int8_quantized",
+    "num_shards": 1,
+    "total_bytes": 34370081503,
+    "total_gb": 32.01,
+    "source": "filesystem",
+    "measurement_type": "serialized_checkpoint_bytes",
+    "model_size_gb": 32.01,
+    "runtime_exposed_weight_footprint_gb": 31.953,
+    "runtime_total_parameters": 32152650368,
+    "disk_minus_runtime_gb": 0.057
+  },
+  "fp8": {
+    "path": "research/quantized_models/fp8_quantized",
+    "num_shards": 7,
+    "total_bytes": 34342099700,
+    "total_gb": 31.984,
+    "source": "filesystem",
+    "measurement_type": "serialized_checkpoint_bytes",
+    "model_size_gb": 31.984,
+    "runtime_exposed_weight_footprint_gb": 31.953,
+    "runtime_total_parameters": 32152650368,
+    "disk_minus_runtime_gb": 0.031
+  },
+  "nf4": {
+    "path": "research/quantized_models/nf4_quantized",
+    "num_shards": 1,
+    "total_bytes": 19802238140,
+    "total_gb": 18.442,
+    "source": "filesystem",
+    "measurement_type": "serialized_checkpoint_bytes",
+    "model_size_gb": 18.442,
+    "runtime_exposed_weight_footprint_gb": 17.986,
+    "runtime_total_parameters": 17154867840,
+    "disk_minus_runtime_gb": 0.456
+  },
+  "gptq": {
+    "path": "research/quantized_models/gptq_quantized",
+    "num_shards": 1,
+    "total_bytes": 19987529720,
+    "total_gb": 18.615,
+    "source": "filesystem",
+    "measurement_type": "serialized_checkpoint_bytes",
+    "model_size_gb": 18.615,
+    "runtime_exposed_weight_footprint_gb": 4.018,
+    "runtime_total_parameters": 2157085312,
+    "disk_minus_runtime_gb": 14.597
+  }
+}

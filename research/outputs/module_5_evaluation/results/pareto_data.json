@@ -1,0 +1,32 @@
+{
+  "nf4": {
+    "tag": "nf4",
+    "throughput": 8.97,
+    "accuracy": 67.11,
+    "metric_name": "Composite Benchmark Score (%)"
+  },
+  "fp8": {
+    "tag": "fp8",
+    "throughput": 4.74,
+    "accuracy": 64.83,
+    "metric_name": "Composite Benchmark Score (%)"
+  },
+  "gptq": {
+    "tag": "gptq",
+    "throughput": 7.66,
+    "accuracy": 66.93,
+    "metric_name": "Composite Benchmark Score (%)"
+  },
+  "int8": {
+    "tag": "int8",
+    "throughput": 5.11,
+    "accuracy": 68.2,
+    "metric_name": "Composite Benchmark Score (%)"
+  },
+  "bf16": {
+    "tag": "bf16",
+    "throughput": 17.72,
+    "accuracy": 66.12,
+    "metric_name": "Composite Benchmark Score (%)"
+  }
+}

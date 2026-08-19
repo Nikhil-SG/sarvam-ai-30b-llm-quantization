@@ -1,0 +1,208 @@
+{
+  "status": "\u2713 COMPLETED",
+  "quantizers": {
+    "bf16": {
+      "status": "\u2713 COMPLETED",
+      "latency": {
+        "status": "\u2713 COMPLETED",
+        "batch_sizes": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "time_sec": 50.28,
+        "method": "token generation with warmup and multiple runs"
+      },
+      "vram": {
+        "status": "\u2713 COMPLETED",
+        "peak_gb": {
+          "0": 51.858,
+          "1": 8.391
+        },
+        "peak_max_gb": 51.858,
+        "peak_total_gb": 60.249,
+        "current_total_allocated_gb": 59.905,
+        "current_total_reserved_gb": 88.949,
+        "time_sec": 0.0,
+        "method": "current torch.cuda snapshot after latency benchmark plus peak memory since model load"
+      },
+      "disk": {
+        "status": "\u2713 COMPLETED",
+        "model_size_gb": 119.779,
+        "runtime_exposed_weight_footprint_gb": 59.889,
+        "num_shards": 26,
+        "source": "filesystem",
+        "time_sec": 0.03,
+        "method": "filesystem shard summation of serialized checkpoint files; runtime tensor footprint reported separately"
+      },
+      "time_sec": 161.8
+    },
+    "int8": {
+      "status": "\u2713 COMPLETED",
+      "latency": {
+        "status": "\u2713 COMPLETED",
+        "batch_sizes": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "time_sec": 184.95,
+        "method": "token generation with warmup and multiple runs"
+      },
+      "vram": {
+        "status": "\u2713 COMPLETED",
+        "peak_gb": {
+          "0": 32.219,
+          "1": 0.008
+        },
+        "peak_max_gb": 32.219,
+        "peak_total_gb": 32.227,
+        "current_total_allocated_gb": 32.023,
+        "current_total_reserved_gb": 63.248,
+        "time_sec": 0.0,
+        "method": "current torch.cuda snapshot after latency benchmark plus peak memory since model load"
+      },
+      "disk": {
+        "status": "\u2713 COMPLETED",
+        "model_size_gb": 32.01,
+        "runtime_exposed_weight_footprint_gb": 31.953,
+        "num_shards": 1,
+        "source": "filesystem",
+        "time_sec": 0.04,
+        "method": "filesystem shard summation of serialized checkpoint files; runtime tensor footprint reported separately"
+      },
+      "time_sec": 240.53
+    },
+    "fp8": {
+      "status": "\u2713 COMPLETED",
+      "latency": {
+        "status": "\u2713 COMPLETED",
+        "batch_sizes": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "time_sec": 190.51,
+        "method": "token generation with warmup and multiple runs"
+      },
+      "vram": {
+        "status": "\u2713 COMPLETED",
+        "peak_gb": {
+          "0": 0.008,
+          "1": 59.921
+        },
+        "peak_max_gb": 59.921,
+        "peak_total_gb": 59.929,
+        "current_total_allocated_gb": 32.003,
+        "current_total_reserved_gb": 93.58,
+        "time_sec": 0.0,
+        "method": "current torch.cuda snapshot after latency benchmark plus peak memory since model load"
+      },
+      "disk": {
+        "status": "\u2713 COMPLETED",
+        "model_size_gb": 31.984,
+        "runtime_exposed_weight_footprint_gb": 31.953,
+        "num_shards": 7,
+        "source": "filesystem",
+        "time_sec": 0.06,
+        "method": "filesystem shard summation of serialized checkpoint files; runtime tensor footprint reported separately"
+      },
+      "time_sec": 289.51
+    },
+    "nf4": {
+      "status": "\u2713 COMPLETED",
+      "latency": {
+        "status": "\u2713 COMPLETED",
+        "batch_sizes": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "time_sec": 124.36,
+        "method": "token generation with warmup and multiple runs"
+      },
+      "vram": {
+        "status": "\u2713 COMPLETED",
+        "peak_gb": {
+          "0": 18.653,
+          "1": 0.008
+        },
+        "peak_max_gb": 18.653,
+        "peak_total_gb": 18.661,
+        "current_total_allocated_gb": 18.458,
+        "current_total_reserved_gb": 58.385,
+        "time_sec": 0.0,
+        "method": "current torch.cuda snapshot after latency benchmark plus peak memory since model load"
+      },
+      "disk": {
+        "status": "\u2713 COMPLETED",
+        "model_size_gb": 18.442,
+        "runtime_exposed_weight_footprint_gb": 17.986,
+        "num_shards": 1,
+        "source": "filesystem",
+        "time_sec": 0.07,
+        "method": "filesystem shard summation of serialized checkpoint files; runtime tensor footprint reported separately"
+      },
+      "time_sec": 166.56
+    },
+    "gptq": {
+      "status": "\u2713 COMPLETED",
+      "latency": {
+        "status": "\u2713 COMPLETED",
+        "batch_sizes": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "time_sec": 112.77,
+        "method": "token generation with warmup and multiple runs"
+      },
+      "vram": {
+        "status": "\u2713 COMPLETED",
+        "peak_gb": {
+          "0": 20.62,
+          "1": 0.008
+        },
+        "peak_max_gb": 20.62,
+        "peak_total_gb": 20.628,
+        "current_total_allocated_gb": 18.629,
+        "current_total_reserved_gb": 58.556,
+        "time_sec": 0.0,
+        "method": "current torch.cuda snapshot after latency benchmark plus peak memory since model load"
+      },
+      "disk": {
+        "status": "\u2713 COMPLETED",
+        "model_size_gb": 18.615,
+        "runtime_exposed_weight_footprint_gb": 4.018,
+        "num_shards": 1,
+        "source": "filesystem",
+        "time_sec": 0.02,
+        "method": "filesystem shard summation of serialized checkpoint files; runtime tensor footprint reported separately"
+      },
+      "time_sec": 156.35
+    }
+  },
+  "methods": {
+    "latency": "token generation with warmup and multiple runs",
+    "vram": "current torch.cuda snapshot after benchmark plus peak memory since model load",
+    "disk": "serialized checkpoint bytes measured from filesystem (.safetensors/.bin)"
+  },
+  "total_time_sec": 1018.05,
+  "profiling_config": {
+    "batch_sizes": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "max_new_tokens": 64,
+    "warmup_steps": 2,
+    "num_runs": 3,
+    "prompt_preview": "The future of artificial intelligence in healthcare is transforming how we approach diagnosis and treatment."
+  }
+}

@@ -1,0 +1,461 @@
+{
+  "status": "\u2713 COMPLETED",
+  "submodules": {
+    "layer_1_query_key_value": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 4.24
+    },
+    "layer_2_dense": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.24
+    },
+    "layer_3_query_key_value": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.11
+    },
+    "layer_4_dense": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.24
+    },
+    "layer_5_query_key_value": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.26
+    },
+    "layer_6_dense": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.17
+    },
+    "layer_7_down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.17
+    },
+    "layer_8_gate_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.3
+    },
+    "layer_9_down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.15
+    },
+    "layer_10_down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.11
+    },
+    "layer_11_down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.23
+    },
+    "layer_12_down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.2
+    },
+    "layer_13_down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.13
+    },
+    "layer_14_down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.21
+    }
+  },
+  "total_time_sec": 46.25,
+  "methods": {
+    "6a_histograms": "side-by-side per-layer weight distribution histograms across available tags",
+    "6b_heatmaps": "per-layer weight-value heatmaps with percentile clipping for visual comparability",
+    "6c_diff_heatmaps": "per-layer quantization error heatmaps computed as (quantized - bf16)"
+  },
+  "layers": {
+    "model.layers.0.attention.query_key_value": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 4.24,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_0_attention_query_key_value.png",
+          "time_sec": 2.35
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_0_attention_query_key_value.png",
+          "time_sec": 0.97
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_0_attention_query_key_value.png",
+          "time_sec": 0.71
+        }
+      ]
+    },
+    "model.layers.0.attention.dense": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.24,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_0_attention_dense.png",
+          "time_sec": 1.58
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_0_attention_dense.png",
+          "time_sec": 0.75
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_0_attention_dense.png",
+          "time_sec": 0.77
+        }
+      ]
+    },
+    "model.layers.9.attention.query_key_value": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.11,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_9_attention_query_key_value.png",
+          "time_sec": 1.54
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_9_attention_query_key_value.png",
+          "time_sec": 0.78
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_9_attention_query_key_value.png",
+          "time_sec": 0.65
+        }
+      ]
+    },
+    "model.layers.9.attention.dense": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.24,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_9_attention_dense.png",
+          "time_sec": 1.6
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_9_attention_dense.png",
+          "time_sec": 0.82
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_9_attention_dense.png",
+          "time_sec": 0.68
+        }
+      ]
+    },
+    "model.layers.18.attention.query_key_value": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.26,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_18_attention_query_key_value.png",
+          "time_sec": 1.57
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_18_attention_query_key_value.png",
+          "time_sec": 0.87
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_18_attention_query_key_value.png",
+          "time_sec": 0.67
+        }
+      ]
+    },
+    "model.layers.18.attention.dense": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.17,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_18_attention_dense.png",
+          "time_sec": 1.51
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_18_attention_dense.png",
+          "time_sec": 0.79
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_18_attention_dense.png",
+          "time_sec": 0.75
+        }
+      ]
+    },
+    "model.layers.0.mlp.down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.17,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_0_mlp_down_proj.png",
+          "time_sec": 1.55
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_0_mlp_down_proj.png",
+          "time_sec": 0.78
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_0_mlp_down_proj.png",
+          "time_sec": 0.69
+        }
+      ]
+    },
+    "model.layers.0.mlp.gate_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.3,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_0_mlp_gate_proj.png",
+          "time_sec": 1.58
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_0_mlp_gate_proj.png",
+          "time_sec": 0.86
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_0_mlp_gate_proj.png",
+          "time_sec": 0.7
+        }
+      ]
+    },
+    "model.layers.1.mlp.shared_experts.down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.15,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_1_mlp_shared_experts_down_proj.png",
+          "time_sec": 1.5
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_1_mlp_shared_experts_down_proj.png",
+          "time_sec": 0.76
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_1_mlp_shared_experts_down_proj.png",
+          "time_sec": 0.75
+        }
+      ]
+    },
+    "model.layers.9.mlp.shared_experts.down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.11,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_9_mlp_shared_experts_down_proj.png",
+          "time_sec": 1.55
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_9_mlp_shared_experts_down_proj.png",
+          "time_sec": 0.76
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_9_mlp_shared_experts_down_proj.png",
+          "time_sec": 0.67
+        }
+      ]
+    },
+    "model.layers.18.mlp.shared_experts.down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.23,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_18_mlp_shared_experts_down_proj.png",
+          "time_sec": 1.55
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_18_mlp_shared_experts_down_proj.png",
+          "time_sec": 0.88
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_18_mlp_shared_experts_down_proj.png",
+          "time_sec": 0.66
+        }
+      ]
+    },
+    "model.layers.9.mlp.experts.0.down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.2,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_9_mlp_experts_0_down_proj.png",
+          "time_sec": 1.52
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_9_mlp_experts_0_down_proj.png",
+          "time_sec": 0.77
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_9_mlp_experts_0_down_proj.png",
+          "time_sec": 0.78
+        }
+      ]
+    },
+    "model.layers.9.mlp.experts.63.down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.13,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_9_mlp_experts_63_down_proj.png",
+          "time_sec": 1.53
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_9_mlp_experts_63_down_proj.png",
+          "time_sec": 0.77
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_9_mlp_experts_63_down_proj.png",
+          "time_sec": 0.69
+        }
+      ]
+    },
+    "model.layers.9.mlp.experts.127.down_proj": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3.21,
+      "available_tags": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "plots": [
+        {
+          "type": "histogram",
+          "path": "research/outputs/module_6_visualization/plots/layer_hist_model_layers_9_mlp_experts_127_down_proj.png",
+          "time_sec": 1.58
+        },
+        {
+          "type": "heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_heatmap_model_layers_9_mlp_experts_127_down_proj.png",
+          "time_sec": 0.83
+        },
+        {
+          "type": "diff_heatmap",
+          "path": "research/outputs/module_6_visualization/plots/layer_diff_model_layers_9_mlp_experts_127_down_proj.png",
+          "time_sec": 0.66
+        }
+      ]
+    }
+  }
+}

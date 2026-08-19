@@ -1,0 +1,282 @@
+{
+  "bf16": {
+    "tag": "bf16",
+    "tasks": {
+      "mmlu": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "mmlu",
+        "label": "MMLU",
+        "group": "knowledge_reasoning",
+        "accuracy": 66.12305939324882,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 5,
+        "batch_size": 2,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 3376.28,
+        "raw": {
+          "acc,none": 0.6612305939324883,
+          "acc_stderr,none": 0.003755012730402919
+        }
+      }
+    },
+    "suite": {
+      "task_ids": [
+        "mmlu"
+      ],
+      "primary_metric": "composite",
+      "groups": [
+        "knowledge_reasoning",
+        "coding"
+      ]
+    },
+    "mmlu": {
+      "accuracy": 66.12305939324882,
+      "status": "\u2713 COMPLETED",
+      "label": "MMLU",
+      "group": "knowledge_reasoning",
+      "raw": {
+        "acc,none": 0.6612305939324883,
+        "acc_stderr,none": 0.003755012730402919
+      }
+    },
+    "summary": {
+      "completed_tasks": [
+        "mmlu"
+      ],
+      "skipped_tasks": [],
+      "failed_tasks": [],
+      "composite_score": 66.12,
+      "primary_metric": "composite",
+      "primary_score": 66.12,
+      "num_tasks_total": 1,
+      "num_tasks_completed": 1
+    }
+  },
+  "int8": {
+    "tag": "int8",
+    "tasks": {
+      "mmlu": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "mmlu",
+        "label": "MMLU",
+        "group": "knowledge_reasoning",
+        "accuracy": 68.19541375872383,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 5,
+        "batch_size": 2,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 22877.07,
+        "raw": {
+          "acc,none": 0.6819541375872383,
+          "acc_stderr,none": 0.003717059494235317
+        }
+      }
+    },
+    "suite": {
+      "task_ids": [
+        "mmlu"
+      ],
+      "primary_metric": "composite",
+      "groups": [
+        "knowledge_reasoning",
+        "coding"
+      ]
+    },
+    "mmlu": {
+      "accuracy": 68.19541375872383,
+      "status": "\u2713 COMPLETED",
+      "label": "MMLU",
+      "group": "knowledge_reasoning",
+      "raw": {
+        "acc,none": 0.6819541375872383,
+        "acc_stderr,none": 0.003717059494235317
+      }
+    },
+    "summary": {
+      "completed_tasks": [
+        "mmlu"
+      ],
+      "skipped_tasks": [],
+      "failed_tasks": [],
+      "composite_score": 68.2,
+      "primary_metric": "composite",
+      "primary_score": 68.2,
+      "num_tasks_total": 1,
+      "num_tasks_completed": 1
+    }
+  },
+  "fp8": {
+    "tag": "fp8",
+    "tasks": {
+      "mmlu": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "mmlu",
+        "label": "MMLU",
+        "group": "knowledge_reasoning",
+        "accuracy": 64.8340692209087,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 5,
+        "batch_size": 2,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 18567.48,
+        "raw": {
+          "acc,none": 0.6483406922090871,
+          "acc_stderr,none": 0.0038164194402450224
+        }
+      }
+    },
+    "suite": {
+      "task_ids": [
+        "mmlu"
+      ],
+      "primary_metric": "composite",
+      "groups": [
+        "knowledge_reasoning",
+        "coding"
+      ]
+    },
+    "mmlu": {
+      "accuracy": 64.8340692209087,
+      "status": "\u2713 COMPLETED",
+      "label": "MMLU",
+      "group": "knowledge_reasoning",
+      "raw": {
+        "acc,none": 0.6483406922090871,
+        "acc_stderr,none": 0.0038164194402450224
+      }
+    },
+    "summary": {
+      "completed_tasks": [
+        "mmlu"
+      ],
+      "skipped_tasks": [],
+      "failed_tasks": [],
+      "composite_score": 64.83,
+      "primary_metric": "composite",
+      "primary_score": 64.83,
+      "num_tasks_total": 1,
+      "num_tasks_completed": 1
+    }
+  },
+  "nf4": {
+    "tag": "nf4",
+    "tasks": {
+      "mmlu": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "mmlu",
+        "label": "MMLU",
+        "group": "knowledge_reasoning",
+        "accuracy": 67.11294687366473,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 5,
+        "batch_size": 2,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 13731.64,
+        "raw": {
+          "acc,none": 0.6711294687366473,
+          "acc_stderr,none": 0.0037552184376409828
+        }
+      }
+    },
+    "suite": {
+      "task_ids": [
+        "mmlu"
+      ],
+      "primary_metric": "composite",
+      "groups": [
+        "knowledge_reasoning",
+        "coding"
+      ]
+    },
+    "mmlu": {
+      "accuracy": 67.11294687366473,
+      "status": "\u2713 COMPLETED",
+      "label": "MMLU",
+      "group": "knowledge_reasoning",
+      "raw": {
+        "acc,none": 0.6711294687366473,
+        "acc_stderr,none": 0.0037552184376409828
+      }
+    },
+    "summary": {
+      "completed_tasks": [
+        "mmlu"
+      ],
+      "skipped_tasks": [],
+      "failed_tasks": [],
+      "composite_score": 67.11,
+      "primary_metric": "composite",
+      "primary_score": 67.11,
+      "num_tasks_total": 1,
+      "num_tasks_completed": 1
+    }
+  },
+  "gptq": {
+    "tag": "gptq",
+    "tasks": {
+      "mmlu": {
+        "status": "\u2713 COMPLETED",
+        "task_id": "mmlu",
+        "label": "MMLU",
+        "group": "knowledge_reasoning",
+        "accuracy": 66.93490955704316,
+        "weight": 1.0,
+        "kind": "loglikelihood",
+        "num_fewshot": 5,
+        "batch_size": 2,
+        "max_gen_toks": 256,
+        "limit": null,
+        "gen_kwargs": null,
+        "time_sec": 11708.47,
+        "raw": {
+          "acc,none": 0.6693490955704315,
+          "acc_stderr,none": 0.003761359024118455
+        }
+      }
+    },
+    "suite": {
+      "task_ids": [
+        "mmlu"
+      ],
+      "primary_metric": "composite",
+      "groups": [
+        "knowledge_reasoning",
+        "coding"
+      ]
+    },
+    "mmlu": {
+      "accuracy": 66.93490955704316,
+      "status": "\u2713 COMPLETED",
+      "label": "MMLU",
+      "group": "knowledge_reasoning",
+      "raw": {
+        "acc,none": 0.6693490955704315,
+        "acc_stderr,none": 0.003761359024118455
+      }
+    },
+    "summary": {
+      "completed_tasks": [
+        "mmlu"
+      ],
+      "skipped_tasks": [],
+      "failed_tasks": [],
+      "composite_score": 66.93,
+      "primary_metric": "composite",
+      "primary_score": 66.93,
+      "num_tasks_total": 1,
+      "num_tasks_completed": 1
+    }
+  }
+}

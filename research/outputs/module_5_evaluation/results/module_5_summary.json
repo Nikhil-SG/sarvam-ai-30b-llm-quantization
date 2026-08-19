@@ -1,0 +1,408 @@
+{
+  "status": "\u2713 COMPLETED",
+  "submodules": {
+    "BF16 evaluation": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3671.29
+    },
+    "INT8 evaluation": {
+      "status": "\u2713 COMPLETED (cached)",
+      "time_sec": 0.0
+    },
+    "FP8 evaluation": {
+      "status": "\u2713 COMPLETED (cached)",
+      "time_sec": 0.0
+    },
+    "NF4 evaluation": {
+      "status": "\u2713 COMPLETED (cached)",
+      "time_sec": 0.0
+    },
+    "GPTQ evaluation": {
+      "status": "\u2713 COMPLETED (cached)",
+      "time_sec": 0.0
+    },
+    "Pareto analysis": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 2.26
+    }
+  },
+  "total_time_sec": 3679.46,
+  "methods": {
+    "perplexity": "sliding-window language modeling perplexity",
+    "benchmarks": "lm-evaluation-harness with grouped Sarvam-aligned benchmark configs",
+    "pareto": "pareto-optimal analysis from benchmark quality score and throughput"
+  },
+  "quantizers": {
+    "bf16": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 3671.29,
+      "perplexity": {
+        "status": "\u2713 COMPLETED",
+        "method": "sliding-window language modeling perplexity",
+        "tag": "bf16",
+        "perplexity": 12.07,
+        "avg_nll": 2.490726,
+        "num_windows": 285,
+        "dataset": "wikitext",
+        "max_length": 2048,
+        "stride": 1024
+      },
+      "benchmarks": {
+        "status": "\u2713 COMPLETED",
+        "method": "lm-evaluation-harness with grouped Sarvam-aligned benchmark configs",
+        "tag": "bf16",
+        "tasks": {
+          "mmlu": {
+            "status": "\u2713 COMPLETED",
+            "task_id": "mmlu",
+            "label": "MMLU",
+            "group": "knowledge_reasoning",
+            "accuracy": 66.12305939324882,
+            "weight": 1.0,
+            "kind": "loglikelihood",
+            "num_fewshot": 5,
+            "batch_size": 2,
+            "max_gen_toks": 256,
+            "limit": null,
+            "gen_kwargs": null,
+            "time_sec": 3376.28,
+            "raw": {
+              "acc,none": 0.6612305939324883,
+              "acc_stderr,none": 0.003755012730402919
+            }
+          }
+        },
+        "suite": {
+          "task_ids": [
+            "mmlu"
+          ],
+          "primary_metric": "composite",
+          "groups": [
+            "knowledge_reasoning",
+            "coding"
+          ]
+        },
+        "mmlu": {
+          "accuracy": 66.12305939324882,
+          "status": "\u2713 COMPLETED",
+          "label": "MMLU",
+          "group": "knowledge_reasoning",
+          "raw": {
+            "acc,none": 0.6612305939324883,
+            "acc_stderr,none": 0.003755012730402919
+          }
+        },
+        "summary": {
+          "completed_tasks": [
+            "mmlu"
+          ],
+          "skipped_tasks": [],
+          "failed_tasks": [],
+          "composite_score": 66.12,
+          "primary_metric": "composite",
+          "primary_score": 66.12,
+          "num_tasks_total": 1,
+          "num_tasks_completed": 1
+        }
+      }
+    },
+    "int8": {
+      "status": "\u2713 COMPLETED (cached)",
+      "time_sec": 0.0,
+      "perplexity": {
+        "status": "\u2713 COMPLETED (cached)",
+        "method": "sliding-window language modeling perplexity",
+        "tag": "int8",
+        "perplexity": 11.9548,
+        "avg_nll": 2.481135,
+        "num_windows": 285,
+        "dataset": "wikitext",
+        "max_length": 2048,
+        "stride": 1024
+      },
+      "benchmarks": {
+        "status": "\u2713 COMPLETED (cached)",
+        "method": "lm-evaluation-harness with grouped Sarvam-aligned benchmark configs",
+        "tag": "int8",
+        "tasks": {
+          "mmlu": {
+            "status": "\u2713 COMPLETED",
+            "task_id": "mmlu",
+            "label": "MMLU",
+            "group": "knowledge_reasoning",
+            "accuracy": 68.19541375872383,
+            "weight": 1.0,
+            "kind": "loglikelihood",
+            "num_fewshot": 5,
+            "batch_size": 2,
+            "max_gen_toks": 256,
+            "limit": null,
+            "gen_kwargs": null,
+            "time_sec": 22877.07,
+            "raw": {
+              "acc,none": 0.6819541375872383,
+              "acc_stderr,none": 0.003717059494235317
+            }
+          }
+        },
+        "suite": {
+          "task_ids": [
+            "mmlu"
+          ],
+          "primary_metric": "composite",
+          "groups": [
+            "knowledge_reasoning",
+            "coding"
+          ]
+        },
+        "mmlu": {
+          "accuracy": 68.19541375872383,
+          "status": "\u2713 COMPLETED",
+          "label": "MMLU",
+          "group": "knowledge_reasoning",
+          "raw": {
+            "acc,none": 0.6819541375872383,
+            "acc_stderr,none": 0.003717059494235317
+          }
+        },
+        "summary": {
+          "completed_tasks": [
+            "mmlu"
+          ],
+          "skipped_tasks": [],
+          "failed_tasks": [],
+          "composite_score": 68.2,
+          "primary_metric": "composite",
+          "primary_score": 68.2,
+          "num_tasks_total": 1,
+          "num_tasks_completed": 1
+        }
+      }
+    },
+    "fp8": {
+      "status": "\u2713 COMPLETED (cached)",
+      "time_sec": 0.0,
+      "perplexity": {
+        "status": "\u2713 COMPLETED (cached)",
+        "method": "sliding-window language modeling perplexity",
+        "tag": "fp8",
+        "perplexity": 12.2718,
+        "avg_nll": 2.507305,
+        "num_windows": 285,
+        "dataset": "wikitext",
+        "max_length": 2048,
+        "stride": 1024
+      },
+      "benchmarks": {
+        "status": "\u2713 COMPLETED (cached)",
+        "method": "lm-evaluation-harness with grouped Sarvam-aligned benchmark configs",
+        "tag": "fp8",
+        "tasks": {
+          "mmlu": {
+            "status": "\u2713 COMPLETED",
+            "task_id": "mmlu",
+            "label": "MMLU",
+            "group": "knowledge_reasoning",
+            "accuracy": 64.8340692209087,
+            "weight": 1.0,
+            "kind": "loglikelihood",
+            "num_fewshot": 5,
+            "batch_size": 2,
+            "max_gen_toks": 256,
+            "limit": null,
+            "gen_kwargs": null,
+            "time_sec": 18567.48,
+            "raw": {
+              "acc,none": 0.6483406922090871,
+              "acc_stderr,none": 0.0038164194402450224
+            }
+          }
+        },
+        "suite": {
+          "task_ids": [
+            "mmlu"
+          ],
+          "primary_metric": "composite",
+          "groups": [
+            "knowledge_reasoning",
+            "coding"
+          ]
+        },
+        "mmlu": {
+          "accuracy": 64.8340692209087,
+          "status": "\u2713 COMPLETED",
+          "label": "MMLU",
+          "group": "knowledge_reasoning",
+          "raw": {
+            "acc,none": 0.6483406922090871,
+            "acc_stderr,none": 0.0038164194402450224
+          }
+        },
+        "summary": {
+          "completed_tasks": [
+            "mmlu"
+          ],
+          "skipped_tasks": [],
+          "failed_tasks": [],
+          "composite_score": 64.83,
+          "primary_metric": "composite",
+          "primary_score": 64.83,
+          "num_tasks_total": 1,
+          "num_tasks_completed": 1
+        }
+      }
+    },
+    "nf4": {
+      "status": "\u2713 COMPLETED (cached)",
+      "time_sec": 0.0,
+      "perplexity": {
+        "status": "\u2713 COMPLETED (cached)",
+        "method": "sliding-window language modeling perplexity",
+        "tag": "nf4",
+        "perplexity": 12.3951,
+        "avg_nll": 2.517301,
+        "num_windows": 285,
+        "dataset": "wikitext",
+        "max_length": 2048,
+        "stride": 1024
+      },
+      "benchmarks": {
+        "status": "\u2713 COMPLETED (cached)",
+        "method": "lm-evaluation-harness with grouped Sarvam-aligned benchmark configs",
+        "tag": "nf4",
+        "tasks": {
+          "mmlu": {
+            "status": "\u2713 COMPLETED",
+            "task_id": "mmlu",
+            "label": "MMLU",
+            "group": "knowledge_reasoning",
+            "accuracy": 67.11294687366473,
+            "weight": 1.0,
+            "kind": "loglikelihood",
+            "num_fewshot": 5,
+            "batch_size": 2,
+            "max_gen_toks": 256,
+            "limit": null,
+            "gen_kwargs": null,
+            "time_sec": 13731.64,
+            "raw": {
+              "acc,none": 0.6711294687366473,
+              "acc_stderr,none": 0.0037552184376409828
+            }
+          }
+        },
+        "suite": {
+          "task_ids": [
+            "mmlu"
+          ],
+          "primary_metric": "composite",
+          "groups": [
+            "knowledge_reasoning",
+            "coding"
+          ]
+        },
+        "mmlu": {
+          "accuracy": 67.11294687366473,
+          "status": "\u2713 COMPLETED",
+          "label": "MMLU",
+          "group": "knowledge_reasoning",
+          "raw": {
+            "acc,none": 0.6711294687366473,
+            "acc_stderr,none": 0.0037552184376409828
+          }
+        },
+        "summary": {
+          "completed_tasks": [
+            "mmlu"
+          ],
+          "skipped_tasks": [],
+          "failed_tasks": [],
+          "composite_score": 67.11,
+          "primary_metric": "composite",
+          "primary_score": 67.11,
+          "num_tasks_total": 1,
+          "num_tasks_completed": 1
+        }
+      }
+    },
+    "gptq": {
+      "status": "\u2713 COMPLETED (cached)",
+      "time_sec": 0.0,
+      "perplexity": {
+        "status": "\u2713 COMPLETED (cached)",
+        "method": "sliding-window language modeling perplexity",
+        "tag": "gptq",
+        "perplexity": 12.3844,
+        "avg_nll": 2.51644,
+        "num_windows": 285,
+        "dataset": "wikitext",
+        "max_length": 2048,
+        "stride": 1024
+      },
+      "benchmarks": {
+        "status": "\u2713 COMPLETED (cached)",
+        "method": "lm-evaluation-harness with grouped Sarvam-aligned benchmark configs",
+        "tag": "gptq",
+        "tasks": {
+          "mmlu": {
+            "status": "\u2713 COMPLETED",
+            "task_id": "mmlu",
+            "label": "MMLU",
+            "group": "knowledge_reasoning",
+            "accuracy": 66.93490955704316,
+            "weight": 1.0,
+            "kind": "loglikelihood",
+            "num_fewshot": 5,
+            "batch_size": 2,
+            "max_gen_toks": 256,
+            "limit": null,
+            "gen_kwargs": null,
+            "time_sec": 11708.47,
+            "raw": {
+              "acc,none": 0.6693490955704315,
+              "acc_stderr,none": 0.003761359024118455
+            }
+          }
+        },
+        "suite": {
+          "task_ids": [
+            "mmlu"
+          ],
+          "primary_metric": "composite",
+          "groups": [
+            "knowledge_reasoning",
+            "coding"
+          ]
+        },
+        "mmlu": {
+          "accuracy": 66.93490955704316,
+          "status": "\u2713 COMPLETED",
+          "label": "MMLU",
+          "group": "knowledge_reasoning",
+          "raw": {
+            "acc,none": 0.6693490955704315,
+            "acc_stderr,none": 0.003761359024118455
+          }
+        },
+        "summary": {
+          "completed_tasks": [
+            "mmlu"
+          ],
+          "skipped_tasks": [],
+          "failed_tasks": [],
+          "composite_score": 66.93,
+          "primary_metric": "composite",
+          "primary_score": 66.93,
+          "num_tasks_total": 1,
+          "num_tasks_completed": 1
+        }
+      }
+    }
+  },
+  "pareto": {
+    "status": "\u2713 COMPLETED",
+    "method": "pareto-optimal analysis from benchmark quality score and throughput",
+    "time_sec": 2.26,
+    "plot_path": "research/outputs/module_5_evaluation/plots/pareto_frontier.png"
+  }
+}

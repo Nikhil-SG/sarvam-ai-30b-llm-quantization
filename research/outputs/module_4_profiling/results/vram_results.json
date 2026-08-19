@@ -1,0 +1,162 @@
+{
+  "bf16": {
+    "tag": "bf16",
+    "snapshot": {
+      "gpu_allocated_gb": {
+        "0": 51.715,
+        "1": 8.19
+      },
+      "gpu_reserved_gb": {
+        "0": 58.029,
+        "1": 30.92
+      },
+      "gpu_total_gb": {
+        "0": 79.151,
+        "1": 79.151
+      },
+      "gpu_utilization_pct": {
+        "0": 65.34,
+        "1": 10.35
+      },
+      "cpu_ram_used_gb": 360.447,
+      "cpu_ram_total_gb": 503.514
+    },
+    "peak_gb": {
+      "0": 51.858,
+      "1": 8.391
+    },
+    "current_total_allocated_gb": 59.905,
+    "current_total_reserved_gb": 88.949,
+    "peak_total_gb": 60.249,
+    "peak_max_gb": 51.858,
+    "measurement_scope": "current snapshot captured after latency benchmark; peak_* reflects memory since reset_peak_memory() before model load"
+  },
+  "int8": {
+    "tag": "int8",
+    "snapshot": {
+      "gpu_allocated_gb": {
+        "0": 32.015,
+        "1": 0.008
+      },
+      "gpu_reserved_gb": {
+        "0": 32.338,
+        "1": 30.91
+      },
+      "gpu_total_gb": {
+        "0": 79.151,
+        "1": 79.151
+      },
+      "gpu_utilization_pct": {
+        "0": 40.45,
+        "1": 0.01
+      },
+      "cpu_ram_used_gb": 360.42,
+      "cpu_ram_total_gb": 503.514
+    },
+    "peak_gb": {
+      "0": 32.219,
+      "1": 0.008
+    },
+    "current_total_allocated_gb": 32.023,
+    "current_total_reserved_gb": 63.248,
+    "peak_total_gb": 32.227,
+    "peak_max_gb": 32.219,
+    "measurement_scope": "current snapshot captured after latency benchmark; peak_* reflects memory since reset_peak_memory() before model load"
+  },
+  "fp8": {
+    "tag": "fp8",
+    "snapshot": {
+      "gpu_allocated_gb": {
+        "0": 0.008,
+        "1": 31.995
+      },
+      "gpu_reserved_gb": {
+        "0": 26.984,
+        "1": 66.596
+      },
+      "gpu_total_gb": {
+        "0": 79.151,
+        "1": 79.151
+      },
+      "gpu_utilization_pct": {
+        "0": 0.01,
+        "1": 40.42
+      },
+      "cpu_ram_used_gb": 359.946,
+      "cpu_ram_total_gb": 503.514
+    },
+    "peak_gb": {
+      "0": 0.008,
+      "1": 59.921
+    },
+    "current_total_allocated_gb": 32.003,
+    "current_total_reserved_gb": 93.58,
+    "peak_total_gb": 59.929,
+    "peak_max_gb": 59.921,
+    "measurement_scope": "current snapshot captured after latency benchmark; peak_* reflects memory since reset_peak_memory() before model load"
+  },
+  "nf4": {
+    "tag": "nf4",
+    "snapshot": {
+      "gpu_allocated_gb": {
+        "0": 18.45,
+        "1": 0.008
+      },
+      "gpu_reserved_gb": {
+        "0": 27.475,
+        "1": 30.91
+      },
+      "gpu_total_gb": {
+        "0": 79.151,
+        "1": 79.151
+      },
+      "gpu_utilization_pct": {
+        "0": 23.31,
+        "1": 0.01
+      },
+      "cpu_ram_used_gb": 360.006,
+      "cpu_ram_total_gb": 503.514
+    },
+    "peak_gb": {
+      "0": 18.653,
+      "1": 0.008
+    },
+    "current_total_allocated_gb": 18.458,
+    "current_total_reserved_gb": 58.385,
+    "peak_total_gb": 18.661,
+    "peak_max_gb": 18.653,
+    "measurement_scope": "current snapshot captured after latency benchmark; peak_* reflects memory since reset_peak_memory() before model load"
+  },
+  "gptq": {
+    "tag": "gptq",
+    "snapshot": {
+      "gpu_allocated_gb": {
+        "0": 18.621,
+        "1": 0.008
+      },
+      "gpu_reserved_gb": {
+        "0": 27.646,
+        "1": 30.91
+      },
+      "gpu_total_gb": {
+        "0": 79.151,
+        "1": 79.151
+      },
+      "gpu_utilization_pct": {
+        "0": 23.53,
+        "1": 0.01
+      },
+      "cpu_ram_used_gb": 359.918,
+      "cpu_ram_total_gb": 503.514
+    },
+    "peak_gb": {
+      "0": 20.62,
+      "1": 0.008
+    },
+    "current_total_allocated_gb": 18.629,
+    "current_total_reserved_gb": 58.556,
+    "peak_total_gb": 20.628,
+    "peak_max_gb": 20.62,
+    "measurement_scope": "current snapshot captured after latency benchmark; peak_* reflects memory since reset_peak_memory() before model load"
+  }
+}

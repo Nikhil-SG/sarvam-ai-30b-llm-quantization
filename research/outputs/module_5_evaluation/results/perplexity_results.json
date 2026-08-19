@@ -1,0 +1,47 @@
+{
+  "bf16": {
+    "tag": "bf16",
+    "perplexity": 12.07,
+    "avg_nll": 2.490726,
+    "num_windows": 285,
+    "dataset": "wikitext",
+    "max_length": 2048,
+    "stride": 1024
+  },
+  "int8": {
+    "tag": "int8",
+    "perplexity": 11.9548,
+    "avg_nll": 2.481135,
+    "num_windows": 285,
+    "dataset": "wikitext",
+    "max_length": 2048,
+    "stride": 1024
+  },
+  "fp8": {
+    "tag": "fp8",
+    "perplexity": 12.2718,
+    "avg_nll": 2.507305,
+    "num_windows": 285,
+    "dataset": "wikitext",
+    "max_length": 2048,
+    "stride": 1024
+  },
+  "nf4": {
+    "tag": "nf4",
+    "perplexity": 12.3951,
+    "avg_nll": 2.517301,
+    "num_windows": 285,
+    "dataset": "wikitext",
+    "max_length": 2048,
+    "stride": 1024
+  },
+  "gptq": {
+    "tag": "gptq",
+    "perplexity": 12.3844,
+    "avg_nll": 2.51644,
+    "num_windows": 285,
+    "dataset": "wikitext",
+    "max_length": 2048,
+    "stride": 1024
+  }
+}
