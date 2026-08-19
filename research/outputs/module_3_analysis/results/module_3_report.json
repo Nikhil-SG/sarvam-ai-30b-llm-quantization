@@ -1,0 +1,224 @@
+{
+  "overview": {
+    "status": "\u2713 COMPLETED",
+    "cache_tags": [
+      "fp8",
+      "bf16",
+      "nf4",
+      "gptq",
+      "int8"
+    ],
+    "layers_per_cache_tag": {
+      "fp8": 97,
+      "bf16": 97,
+      "nf4": 97,
+      "gptq": 97,
+      "int8": 97
+    },
+    "mse_quantizers": [
+      "int8",
+      "fp8",
+      "nf4",
+      "gptq"
+    ],
+    "outlier_tags": [
+      "bf16",
+      "int8",
+      "fp8",
+      "nf4",
+      "gptq"
+    ],
+    "prompt_count": 4
+  },
+  "mse": {
+    "ranking": [
+      {
+        "tag": "int8",
+        "mean_mse": 6.178862082301911e-08,
+        "min_mse": 3.510116286520315e-08,
+        "max_mse": 9.575542492257227e-08,
+        "best_layer": "layer_1_mlp.shared_experts.down_proj",
+        "worst_layer": "layer_17_attention.dense",
+        "num_points": 56
+      },
+      {
+        "tag": "fp8",
+        "mean_mse": 4.354682836549273e-07,
+        "min_mse": 1.8435983406561718e-07,
+        "max_mse": 6.044884344191814e-07,
+        "best_layer": "layer_18_mlp.shared_experts.down_proj",
+        "worst_layer": "layer_17_attention.dense",
+        "num_points": 56
+      },
+      {
+        "tag": "nf4",
+        "mean_mse": 5.377441368636937e-06,
+        "min_mse": 2.7445821615401655e-06,
+        "max_mse": 7.244563676067628e-06,
+        "best_layer": "layer_18_mlp.shared_experts.down_proj",
+        "worst_layer": "layer_17_attention.dense",
+        "num_points": 56
+      },
+      {
+        "tag": "gptq",
+        "mean_mse": 0.00011185513345221157,
+        "min_mse": 7.49307218939066e-05,
+        "max_mse": 0.0001442804787075147,
+        "best_layer": "layer_18_mlp.shared_experts.down_proj",
+        "worst_layer": "layer_17_attention.dense",
+        "num_points": 56
+      }
+    ],
+    "per_quantizer": {
+      "int8": {
+        "mean_mse": 6.178862082301911e-08,
+        "min_mse": 3.510116286520315e-08,
+        "max_mse": 9.575542492257227e-08,
+        "best_layer": "layer_1_mlp.shared_experts.down_proj",
+        "worst_layer": "layer_17_attention.dense",
+        "num_points": 56
+      },
+      "fp8": {
+        "mean_mse": 4.354682836549273e-07,
+        "min_mse": 1.8435983406561718e-07,
+        "max_mse": 6.044884344191814e-07,
+        "best_layer": "layer_18_mlp.shared_experts.down_proj",
+        "worst_layer": "layer_17_attention.dense",
+        "num_points": 56
+      },
+      "nf4": {
+        "mean_mse": 5.377441368636937e-06,
+        "min_mse": 2.7445821615401655e-06,
+        "max_mse": 7.244563676067628e-06,
+        "best_layer": "layer_18_mlp.shared_experts.down_proj",
+        "worst_layer": "layer_17_attention.dense",
+        "num_points": 56
+      },
+      "gptq": {
+        "mean_mse": 0.00011185513345221157,
+        "min_mse": 7.49307218939066e-05,
+        "max_mse": 0.0001442804787075147,
+        "best_layer": "layer_18_mlp.shared_experts.down_proj",
+        "worst_layer": "layer_17_attention.dense",
+        "num_points": 56
+      }
+    }
+  },
+  "outliers": {
+    "ranking": [
+      {
+        "tag": "bf16",
+        "mean_outlier_pct": 0.10493224344135801,
+        "mean_abs_max": 11.555989583333334,
+        "highest_outlier_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_outlier_pct": 0.29069010416666663,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 102.5,
+        "num_layers": 12,
+        "num_prompts": 4
+      },
+      {
+        "tag": "fp8",
+        "mean_outlier_pct": 0.099609375,
+        "mean_abs_max": 10.530517578125,
+        "highest_outlier_layer": "model.layers.0.attention.dense",
+        "highest_outlier_pct": 0.22005208333333334,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 88.875,
+        "num_layers": 12,
+        "num_prompts": 4
+      },
+      {
+        "tag": "int8",
+        "mean_outlier_pct": 0.09874452190634644,
+        "mean_abs_max": 16.40283203125,
+        "highest_outlier_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_outlier_pct": 0.22623697916666669,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 95.125,
+        "num_layers": 12,
+        "num_prompts": 4
+      },
+      {
+        "tag": "gptq",
+        "mean_outlier_pct": 0.0909816818019943,
+        "mean_abs_max": 9.695068359375,
+        "highest_outlier_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_outlier_pct": 0.236328125,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 86.5,
+        "num_layers": 13,
+        "num_prompts": 4
+      },
+      {
+        "tag": "nf4",
+        "mean_outlier_pct": 0.08257656695156695,
+        "mean_abs_max": 17.957557091346153,
+        "highest_outlier_layer": "model.layers.0.attention.dense",
+        "highest_outlier_pct": 0.20963541666666666,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 109.0,
+        "num_layers": 13,
+        "num_prompts": 4
+      }
+    ],
+    "per_tag": {
+      "bf16": {
+        "mean_outlier_pct": 0.10493224344135801,
+        "mean_abs_max": 11.555989583333334,
+        "highest_outlier_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_outlier_pct": 0.29069010416666663,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 102.5,
+        "num_layers": 12,
+        "num_prompts": 4
+      },
+      "int8": {
+        "mean_outlier_pct": 0.09874452190634644,
+        "mean_abs_max": 16.40283203125,
+        "highest_outlier_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_outlier_pct": 0.22623697916666669,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 95.125,
+        "num_layers": 12,
+        "num_prompts": 4
+      },
+      "fp8": {
+        "mean_outlier_pct": 0.099609375,
+        "mean_abs_max": 10.530517578125,
+        "highest_outlier_layer": "model.layers.0.attention.dense",
+        "highest_outlier_pct": 0.22005208333333334,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 88.875,
+        "num_layers": 12,
+        "num_prompts": 4
+      },
+      "nf4": {
+        "mean_outlier_pct": 0.08257656695156695,
+        "mean_abs_max": 17.957557091346153,
+        "highest_outlier_layer": "model.layers.0.attention.dense",
+        "highest_outlier_pct": 0.20963541666666666,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 109.0,
+        "num_layers": 13,
+        "num_prompts": 4
+      },
+      "gptq": {
+        "mean_outlier_pct": 0.0909816818019943,
+        "mean_abs_max": 9.695068359375,
+        "highest_outlier_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_outlier_pct": 0.236328125,
+        "highest_absmax_layer": "model.layers.18.mlp.shared_experts.down_proj",
+        "highest_absmax": 86.5,
+        "num_layers": 13,
+        "num_prompts": 4
+      }
+    }
+  },
+  "key_findings": [
+    "Lowest average weight error is INT8 (6.179e-08), while the highest is GPTQ (1.119e-04).",
+    "The largest single MSE hotspot appears in GPTQ at layer_17_attention.dense (1.443e-04).",
+    "Highest average activation outlier rate is BF16 at 0.1049% across 4 prompts.",
+    "BF16 baseline shows its strongest activation hotspot at model.layers.18.mlp.shared_experts.down_proj (0.2907% outliers), which is the reference point for quantized comparisons."
+  ]
+}

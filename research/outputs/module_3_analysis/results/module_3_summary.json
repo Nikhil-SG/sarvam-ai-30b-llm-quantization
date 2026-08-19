@@ -1,0 +1,59 @@
+{
+  "status": "\u2713 COMPLETED",
+  "submodules": {
+    "weight_distribution": {
+      "status": "\u2713 COMPLETED",
+      "plots_saved": 14,
+      "time_sec": 27.12,
+      "method": "matplotlib histogram with gaussian overlay"
+    },
+    "mse_heatmap": {
+      "status": "\u2713 COMPLETED",
+      "quantizers_analyzed": 4,
+      "time_sec": 15.77,
+      "method": "mean squared error with log-scale colormap"
+    },
+    "outlier_detection": {
+      "status": "\u2713 COMPLETED",
+      "layers_analyzed": 62,
+      "tags_analyzed": [
+        "bf16",
+        "int8",
+        "fp8",
+        "nf4",
+        "gptq"
+      ],
+      "tags_skipped": [],
+      "tags_failed": {},
+      "prompt_count": 4,
+      "time_sec": 424.73,
+      "method": "forward hook activation capture across 4 prompts with 6.0-sigma threshold"
+    },
+    "research_report": {
+      "status": "\u2713 COMPLETED",
+      "time_sec": 0.0,
+      "method": "markdown and json synthesis from Module 3 outputs",
+      "markdown_path": "research/outputs/module_3_analysis/results/module_3_report.md",
+      "json_path": "research/outputs/module_3_analysis/results/module_3_report.json"
+    }
+  },
+  "cache_validation": {
+    "valid": true,
+    "tags": [
+      "fp8",
+      "bf16",
+      "nf4",
+      "gptq",
+      "int8"
+    ],
+    "issues": [],
+    "layer_counts": {
+      "fp8": 97,
+      "bf16": 97,
+      "nf4": 97,
+      "gptq": 97,
+      "int8": 97
+    }
+  },
+  "total_time_sec": 467.63
+}

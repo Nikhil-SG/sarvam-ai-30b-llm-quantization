@@ -1,0 +1,115 @@
+{
+  "quant_type": "gptq",
+  "load_time_sec": 16443.07,
+  "quantization_method": "optimum_gptq_from_scratch",
+  "architecture": {
+    "model_type": "sarvam_moe",
+    "num_layers": 19,
+    "hidden_size": 4096,
+    "vocab_size": 262144,
+    "num_experts": 128,
+    "num_experts_per_tok": 6,
+    "num_shared_experts": 1,
+    "is_moe": true,
+    "first_dense_layer": 1,
+    "total_params_b": 2.16,
+    "active_params_b": 2.16,
+    "layer_prefix": "model.layers",
+    "attn_projections": [
+      "attention.dense",
+      "attention.query_key_value"
+    ],
+    "mlp_projections": [
+      "mlp.down_proj",
+      "mlp.gate_proj",
+      "mlp.shared_experts.down_proj",
+      "mlp.shared_experts.gate_proj",
+      "mlp.shared_experts.up_proj",
+      "mlp.up_proj"
+    ],
+    "moe_projections": [
+      "mlp.shared_experts.down_proj",
+      "mlp.shared_experts.gate_proj",
+      "mlp.shared_experts.up_proj"
+    ]
+  },
+  "static_memory": {
+    "quant_type": "gptq",
+    "total_parameters": 2157085312,
+    "model_size_gb": 4.018,
+    "memory_snapshot": {
+      "gpu_allocated_gb": {
+        "0": 18.62,
+        "1": 0.008
+      },
+      "gpu_reserved_gb": {
+        "0": 27.629,
+        "1": 30.91
+      },
+      "gpu_total_gb": {
+        "0": 79.151,
+        "1": 79.151
+      },
+      "gpu_utilization_pct": {
+        "0": 23.52,
+        "1": 0.01
+      },
+      "cpu_ram_used_gb": 360.03,
+      "cpu_ram_total_gb": 503.514
+    }
+  },
+  "dynamic_memory": {
+    "quant_type": "gptq",
+    "max_new_tokens": 64,
+    "peak_memory_gb": {
+      "0": 18.78,
+      "1": 0.008
+    },
+    "kv_cache_delta_gb": {
+      "0": 0.001,
+      "1": 0.0
+    },
+    "before": {
+      "gpu_allocated_gb": {
+        "0": 18.62,
+        "1": 0.008
+      },
+      "gpu_reserved_gb": {
+        "0": 27.629,
+        "1": 30.91
+      },
+      "gpu_total_gb": {
+        "0": 79.151,
+        "1": 79.151
+      },
+      "gpu_utilization_pct": {
+        "0": 23.52,
+        "1": 0.01
+      },
+      "cpu_ram_used_gb": 360.037,
+      "cpu_ram_total_gb": 503.514
+    },
+    "after": {
+      "gpu_allocated_gb": {
+        "0": 18.621,
+        "1": 0.008
+      },
+      "gpu_reserved_gb": {
+        "0": 27.635,
+        "1": 30.91
+      },
+      "gpu_total_gb": {
+        "0": 79.151,
+        "1": 79.151
+      },
+      "gpu_utilization_pct": {
+        "0": 23.53,
+        "1": 0.01
+      },
+      "cpu_ram_used_gb": 360.201,
+      "cpu_ram_total_gb": 503.514
+    }
+  },
+  "save_method": "optimum_save",
+  "saved_model_dir": "research/quantized_models/gptq_quantized"
+}
